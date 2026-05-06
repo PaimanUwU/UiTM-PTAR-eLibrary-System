@@ -1,0 +1,15 @@
+# Ignore Maven compiled output
+target/
+
+# Ignore IDE specific files (optional but recommended)
+.settings/
+.project
+.classpath
+.factorypath
+.idea/
+*.iml
+*.iws
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
