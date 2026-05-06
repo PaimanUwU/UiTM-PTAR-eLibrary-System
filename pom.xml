@@ -18,9 +18,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>4.0.1</version>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>5.0.0</version>
       <scope>provided</scope>
     </dependency>
       
@@ -34,18 +34,29 @@
  
   <build>
     <finalName>UITMPTARELibrarySystem</finalName>
-    <plugins>
+    <plugins> <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
+      </plugin>
+
       <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.2</version>
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven3-plugin</artifactId>
+        <version>1.10.7</version>
         <configuration>
-          <path>/StudentWebApp</path>
-          <port>8080</port>
-          <username>admin</username>
-          <password>admin</password>
+          <container>
+            <containerId>tomcat10x</containerId>
+            <type>embedded</type>
+          </container>
+          <configuration>
+            <properties>
+              <cargo.servlet.port>8080</cargo.servlet.port>
+            </properties>
+          </configuration>
         </configuration>
       </plugin>
+
     </plugins>
   </build>
 </project>
