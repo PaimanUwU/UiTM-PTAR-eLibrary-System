@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ADMIN</title>
+	<style>
+		body {
+			margin: 0px;
+			padding: 0px;
+			background: #f6f6ff;
+		}
+
+		.top-bar{
+			background: blue;
+			margin: 0px;
+			padding: 0px;
+			height: auto;
+			display: flex;
+			justify-content: flex-end;
+		}
+
+		.button {
+			margin: 0;
+			padding: 20px;
+			color: white;
+			background: blue;
+		}
+
+		.content-intro {
+		}
+
+		.row {
+			min-width: 50%;
+			flex-grow: 1;
+		}
+
+		.content-button {
+			text-decoration: none;
+			color: white;
+			padding: 10px;
+			background: black;
+		}
+
+		a {
+			display: block;
+			text-decoration: none;
+			color: white;
+			background: black;
+			padding: 10px;
+		}
+		a:hover {
+			color: black;
+			background: white;
+		}
+	</style>
+</head>
+<body>
+	<div class='top-bar'>
+		<a class='button' href='index.html'>LOG OUT</a>
+	</div>
+	<div class="content-intro">
+		<a href='admin-book-list.html'>BOOK LIST</a>
+		<a href='admin-add-book.html'>BOOK ADD</a>
+		<a href='admin-borrowed.html'>BORROWED</a>
+		<a href='admin-late.html'>LATE LIST</a>
+	</div>
+</body>
+</html>
