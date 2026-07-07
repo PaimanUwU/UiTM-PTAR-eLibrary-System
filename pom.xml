@@ -1,21 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
- 
   <groupId>com.library.app</groupId>
   <artifactId>UITMPTARELibrarySystem</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>UITMPTARELibrarySystem Maven Webapp</name>
- 
   <url>http://ptar.elibrary</url>
-  
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
   <dependencies>
     <dependency>
       <groupId>jakarta.servlet</groupId>
@@ -23,35 +19,36 @@
       <version>5.0.0</version>
       <scope>provided</scope>
     </dependency>
-  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
-   
     <dependency>
       <groupId>jakarta.servlet.jsp.jstl</groupId>
       <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
       <version>3.0.0</version>
     </dependency>
-   
     <dependency>
       <groupId>org.glassfish.web</groupId>
       <artifactId>jakarta.servlet.jsp.jstl</artifactId>
       <version>3.0.1</version>
     </dependency>
+    <dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <version>8.3.0</version>
+    </dependency>
   </dependencies>
- 
   <build>
     <finalName>UITMPTARELibrarySystem</finalName>
-    <plugins> <plugin>
+    <plugins>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.3.2</version>
       </plugin>
-
       <plugin>
         <groupId>org.codehaus.cargo</groupId>
         <artifactId>cargo-maven3-plugin</artifactId>
@@ -68,7 +65,23 @@
           </configuration>
         </configuration>
       </plugin>
-
+      <plugin>
+        <groupId>io.github.4ndreidev</groupId>
+        <artifactId>tailwind-maven-plugin</artifactId>
+        <version>1.1.0</version>
+        <executions>
+          <execution>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <inputFile>${project.basedir}/src/main/webapp/resources/css/input.css</inputFile>
+          <outputFile>${project.build.directory}/generated-resources/tailwind/resources/css/tailwind.css</outputFile>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
